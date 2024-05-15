@@ -1,0 +1,20 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build with nmake",
+            "type": "shell",
+            "command": "nmake",
+            "args": [
+                "/f",
+                "Makefile"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$msCompile"],
+            "detail": "Generated task to build with nmake"
+        }
+    ]
+}
