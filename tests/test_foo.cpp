@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "../src/foo.h"
+#include "../src/logic/foo.h"
 
 TEST(FooTest, BasicAssertions) {
     // Expect foo() to print "Hello from foo!"

@@ -18,7 +18,7 @@
             "name": "C++ Tests Debug",
             "type": "cppvsdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/target/test_foo.exe",
+            "program": "${workspaceFolder}/target/test_helloworld.exe",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",

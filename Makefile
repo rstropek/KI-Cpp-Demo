@@ -7,14 +7,16 @@ LDFLAGS = /link /LIBPATH:"..\googletest\build\lib\Debug" gtest.lib gtest_main.li
 OBJ_DIR = obj
 TARGET_DIR = target
 EXEC = $(TARGET_DIR)\helloworld.exe
-TEST_EXEC = $(TARGET_DIR)\test_foo.exe
+TEST_EXEC = $(TARGET_DIR)\test_helloworld.exe
 
 # Source files
-SRC = src\*.cpp
-TEST_SRC = tests\*.cpp src\foo.cpp
+SRC = src\*.cpp src\logic\*.cpp
+TEST_SRC = tests\*.cpp src\logic\*.cpp
 
 # Default target
-all: $(EXEC) $(TEST_EXEC)
+all: rebuild
+
+rebuild: clean $(EXEC) $(TEST_EXEC)
 
 # Build target
 $(EXEC):

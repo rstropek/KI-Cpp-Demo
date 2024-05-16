@@ -1,0 +1,20 @@
+{
+    "gtestExplorer.executable": "target/test_helloworld.exe",
+    "makefile.makePath": "nmake",
+    "catch2TestExplorer.enableCodeLens": true,
+    "catch2TestExplorer.executables": [
+        {
+            "name": "${filename} (${relDirpath})",
+            "pattern": "./target/test_*.exe",
+            "cwd": "./target",
+            "env": {
+                "C2TESTEXECUTABLEPATH": "${absPath}"
+            }
+        }
+    ],
+    "catch2TestExplorer.logpanel": true,
+    "files.associations": {
+        "thread": "cpp",
+        "stdexcept": "cpp"
+    }
+}
