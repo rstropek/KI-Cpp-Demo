@@ -1,5 +1,10 @@
 {
     "gtestExplorer.executable": "target/test_helloworld.exe",
+    "C_Cpp.default.includePath": [
+        "C:\\Users\\StropekR\\Documents\\code\\googletest\\googletest\\include\\",
+        "C:\\Users\\StropekR\\Documents\\code\\googletest\\googlemock\\include\\",
+        "${default}"
+    ],
     "makefile.makePath": "nmake",
     "catch2TestExplorer.enableCodeLens": true,
     "catch2TestExplorer.executables": [

@@ -15,6 +15,6 @@ public:
     CSevenSegmentPrinter(uint16_t dx, uint16_t dy, const CSevenSegmentDisplay &display)
         : display(display), dx(dx), dy(dy) { }
 
-    void Print() const override;
-    void Clear() const;
+    void Print(const ITerminalHelper &terminal) const override;
+    void Clear(const ITerminalHelper &terminal) const;
 };

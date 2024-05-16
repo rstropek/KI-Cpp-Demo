@@ -3,15 +3,26 @@
 #include <cstdint>
 #include <iostream>
 
-class CTerminalHelper
+class ITerminalHelper {
+public:
+    virtual ~ITerminalHelper() = default;
+    virtual void HorizontalLine(uint16_t x, uint16_t y, uint16_t length) const = 0;
+    virtual void VerticalLine(uint16_t x, uint16_t y, uint16_t length) const = 0;
+    virtual void SetCursorPosition(uint16_t x, uint16_t y) const = 0;
+    virtual void HideCursor() const = 0;
+    virtual void ShowCursor() const = 0;
+    virtual void ClearScreen() const = 0;
+};
+
+class CTerminalHelper : public ITerminalHelper
 {
 public:
-    static void SetCursorPosition(uint16_t x, uint16_t y)
+    void SetCursorPosition(uint16_t x, uint16_t y) const override
     {
         std::cout << "\x1b[" << y << ";" << x << "H";
     }
 
-    static void HorizontalLine(uint16_t x, uint16_t y, uint16_t length)
+    void HorizontalLine(uint16_t x, uint16_t y, uint16_t length) const override
     {
         SetCursorPosition(x, y);
         for (auto i = 0; i < length; i++)
@@ -20,7 +31,7 @@ public:
         }
     }
 
-    static void VerticalLine(uint16_t x, uint16_t y, uint16_t length)
+    void VerticalLine(uint16_t x, uint16_t y, uint16_t length) const override
     {
         for (auto i = 0; i < length; i++)
         {
@@ -29,17 +40,17 @@ public:
         }
     }
 
-    static void HideCursor()
+    void HideCursor() const override
     {
         std::cout << "\x1b[?25l";
     }
 
-    static void ShowCursor()
+    void ShowCursor() const override
     {
         std::cout << "\x1b[?25h";
     }
 
-    static void ClearScreen()
+    void ClearScreen() const override
     {
         std::cout << "\x1b[2J";
     }

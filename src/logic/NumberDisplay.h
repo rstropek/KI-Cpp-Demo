@@ -17,5 +17,5 @@ public:
     CNumberDisplay(uint16_t initialValue);
 
     void SetValue(uint16_t newValue);
-    void Print() const override;
+    void Print(const ITerminalHelper &terminal) const override;
 };

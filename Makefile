@@ -2,8 +2,8 @@
 
 # Compiler and flags
 CXX = "cl"
-CXXFLAGS = /EHsc /Zi /DEBUG /I "..\googletest\googletest\include" /I "..\googletest\googletest" /MDd
-LDFLAGS = /link /LIBPATH:"..\googletest\build\lib\Debug" gtest.lib gtest_main.lib
+CXXFLAGS = /EHsc /Zi /DEBUG /I "..\googletest\googletest\include" /I "..\googletest\googletest" /I "..\googletest\googlemock\include"  /I "..\googletest\googlemock" /MDd
+LDFLAGS = /link /LIBPATH:"..\googletest\build\lib\Debug" gtest.lib gmock.lib gtest_main.lib
 OBJ_DIR = obj
 TARGET_DIR = target
 EXEC = $(TARGET_DIR)\helloworld.exe

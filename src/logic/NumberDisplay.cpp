@@ -39,11 +39,11 @@ void CNumberDisplay::SetValue(uint16_t newValue)
     digits[3].SetSegments(newValue % 10);
 }
 
-void CNumberDisplay::Print() const
+void CNumberDisplay::Print(const ITerminalHelper &terminal) const
 {
     for (uint8_t ix = 0; ix < 4; ++ix)
     {
-        printers[ix].Clear();
-        printers[ix].Print();
+        printers[ix].Clear(terminal);
+        printers[ix].Print(terminal);
     }
 }

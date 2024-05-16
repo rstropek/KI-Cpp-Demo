@@ -6,8 +6,9 @@
 #include <thread>
 
 int main() {
-    CTerminalHelper::ClearScreen();
-    CTerminalHelper::HideCursor();
+    CTerminalHelper terminal;
+    terminal.ClearScreen();
+    terminal.HideCursor();
 
     // CSevenSegmentDisplay display;
     // CSevenSegmentPrinter printer(0, 0, display);
@@ -17,23 +18,23 @@ int main() {
     // display.SetSegments(2);
     // printer.Print();
 
-    CNumberDisplay display(0);
 
-    std::thread updateThread([&display]()
+    std::thread updateThread([&terminal]()
     {
+        CNumberDisplay display(0);
         uint16_t currentValue = 0;
         while (true)
         {
             display.SetValue(++currentValue);
             //CTerminalHelper::ClearScreen();
-            display.Print();
+            display.Print(terminal);
             std::this_thread::sleep_for(std::chrono::milliseconds(100));
         }
     });
 
     updateThread.join();
 
-    CTerminalHelper::SetCursorPosition(13, 1);
-    CTerminalHelper::ShowCursor();
+    terminal.SetCursorPosition(13, 1);
+    terminal.ShowCursor();
 }
 
